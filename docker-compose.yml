@@ -1,0 +1,19 @@
+version: "3"
+services:
+  ui:
+    image: ui_container:1.0
+    ports:
+      - "80:80"
+    volumes:
+      - ./client/nginx:/etc/nginx/conf.d
+      - .:/usr/share/nginx/html/
+    links:
+      - algo
+    depends_on:
+      - "algo"
+  algo:
+    image: algo_container:2.2
+    ports:
+    - "8888:8888"
+    volumes:
+      - .:/code

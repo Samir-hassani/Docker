@@ -12,7 +12,7 @@ services:
     depends_on:
       - "algo"
   algo:
-    image: algo_container:2.2
+    image: algo_container:2.3
     ports:
     - "8888:8888"
     volumes:
